@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.app {
+  position: relative; 
+  height: 100%;
+}
+.top .addr {
+	height:36px;
+	margin:0 auto;
+	display:block;
+}
+.top .search {
+	position:absolute;
+	top:0;
+	right:0;
+	height:36px;
+	display:block;
+}
+#navMenu {
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+	color:#333333;
+	text-align: center;
+}
+#navMenu .swiper-slide span {
+	display: block;
+	margin: 0 5px;
+}
+
+#navMenu .bar {
+	width:50px;
+	height:3px;
+	position:absolute;
+	bottom:0px;
+}
+#navMenu .bar .color {
+	width:36px;
+	margin:0 auto;
+	height:3px;
+	background:#ff4891;
+}
+.img-box img {
+  display: block;
+  height: 160px;
+  width: 100%;
+}
+.content {
+  position: absolute;
+  width: 100%;
+  background-color: gray;
+  bottom: 48px;
+  top: 72px;
+}
+#tabContentBox {
+  height: 100%;
+}
+#tabContentBox .swiper-slide {
+  height: auto;
+}
+.tab-page {
+  height: 100%;
+  background-color: #fff;
+}
+.pullup-tips {
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: gainsboro;
+}
+.pullup-loading {
+  display: none;
+}
+
+.bottom {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 48px;
+}
+
+.bottom img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sliding-Tab-Example</title>
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="top">
+      <img src="images/top.png" class="addr">
+      <img src="images/search.png" class="search">
+      <div id="navMenu" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <span style="color:rgba(255,72,145,1);">热卖</span>
+          </div>
+          <div class="swiper-slide">
+            <span>水果</span>
+          </div>
+          <div class="swiper-slide">
+            <span>乳品</span>
+          </div>
+          <div class="swiper-slide">
+            <span>零食</span>
+          </div>
+          <div class="swiper-slide">
+            <span>肉蛋</span>
+          </div>
+          <div class="swiper-slide">
+            <span>蔬菜</span>
+          </div>
+          <div class="swiper-slide">
+            <span>酒饮</span>
+          </div>
+          <div class="swiper-slide">
+            <span>速食</span>
+          </div>
+          <div class="swiper-slide">
+            <span>熟食</span>
+          </div>
+          <div class="swiper-slide">
+            <span>水产</span>
+          </div>
+          <div class="swiper-slide">
+            <span>粮油</span>
+          </div>
+          <div class="swiper-slide">
+            <span>轻食</span>
+          </div>
+          <div class="swiper-slide">
+            <span>火锅</span>
+          </div>
+          <div class="swiper-slide">
+            <span>日百</span>
+          </div>
+          <div class="bar">
+            <div class="color"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div id="tabContentBox" class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="tab-page">
+              <div class="tab-page-scroll">
+                <div class="tab-page-content">
+                  <div class="img-box">
+                    <img src="uploads/product1.png"></li>
+                  </div>
+                  <div class="img-box">
+                    <img src="uploads/product2.png"></li>
+                  </div>
+                  <div class="img-box">
+                    <img src="uploads/product3.png"></li>
+                  </div>
+                  <div class="img-box">
+                    <img src="uploads/product4.png"></li>
+                  </div>
+                  <div class="img-box">
+                    <img src="uploads/product5.png"></li>
+                  </div>
+                </div>
+                <div class="pullup-tips">
+                  <div class="pullup-normal">
+                    <span class="pullup-txt">Pull up and load more</span>
+                  </div>
+                  <div class="pullup-loading">
+                    <span class="pullup-txt">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="tab-page">
+              <div class="tab-page-scroll">
+                <div class="tab-page-content">
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>test</h1>
+                  <h1>1test</h1>
+                </div>
+                <div class="pullup-tips">
+                  <div class="pullup-normal">
+                    <span class="pullup-txt">Pull up and load more</span>
+                  </div>
+                  <div class="pullup-loading">
+                    <span class="pullup-txt">Loading...</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">slider3</div>
+          <div class="swiper-slide">slider4</div>
+          <div class="swiper-slide">slider5</div>
+          <div class="swiper-slide">slider6</div>
+          <div class="swiper-slide">slider7</div>
+          <div class="swiper-slide">slider8</div>
+          <div class="swiper-slide">slider9</div>
+          <div class="swiper-slide">slider10</div>
+          <div class="swiper-slide">slider11</div>
+          <div class="swiper-slide">slider12</div>
+          <div class="swiper-slide">slider13</div>
+          <div class="swiper-slide">slider14</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom">
+      <img class="img" src="images/footer.png">
+    </div>
+  </div>
+  <script src="js/jquery-1.6.1.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/better-scroll.js"></script>
+  
+  <script>
+    var barwidth = 36 //导航粉色条的长度px
+    var tSpeed = 300 //切换速度300ms
+    var navSwiper = new Swiper('#navMenu', {
+      freeMode: true,
+      slidesPerView: 6,
+  	  on: {
+        init: function() {
+          navSlideWidth = this.slides.eq(0).css('width'); //导航字数需要统一,每个导航宽度一致
+          bar = this.$el.find('.bar')
+          bar.css('width', navSlideWidth)
+          bar.transition(tSpeed)
+          navSum = this.slides[this.slides.length - 1].offsetLeft //最后一个slide的位置
+
+          clientWidth = parseInt(this.$wrapperEl.css('width')) //Nav的可视宽度
+          navWidth = 0
+          for (i = 0; i < this.slides.length; i++) {
+            navWidth += parseInt(this.slides.eq(i).css('width'))
+          }
+          topBar = this.$el.parents('body').find('#top') //页头
+        },
+  	  },
+    })
+
+    var tabContentBoxSwiper = new Swiper('#tabContentBox', {
+      watchSlidesProgress: true,
+      resistanceRatio: 0,
+      touchMoveStopPropagation : false,
+      touchAngle: 10,
+      threshold: 20,
+      on: {
+        touchMove: function() {
+          progress = this.progress
+          bar.transition(0)
+          bar.transform('translateX(' + navSum * progress + 'px)')
+          //粉色255,72,145灰色51,51,51
+          for (i = 0; i < this.slides.length; i++) {
+            slideProgress = this.slides[i].progress
+            if (Math.abs(slideProgress) < 1) {
+              r = Math.floor((255 - 51) * (1 - Math.pow(Math.abs(slideProgress), 2)) + 51)
+              g = Math.floor((72 - 51) * (1 - Math.pow(Math.abs(slideProgress), 2)) + 51)
+              b = Math.floor((145 - 51) * (1 - Math.pow(Math.abs(slideProgress), 2)) + 51)
+              navSwiper.slides.eq(i).find('span').css('color', 'rgba(' + r + ',' + g + ',' + b + ',1)')
+            }
+          }
+        },
+        transitionStart: function() {
+          activeIndex = this.activeIndex
+          activeSlidePosition = navSwiper.slides[activeIndex].offsetLeft
+          //释放时导航粉色条移动过渡
+          bar.transition(tSpeed)
+          bar.transform('translateX(' + activeSlidePosition + 'px)')
+          //释放时文字变色过渡
+          navSwiper.slides.eq(activeIndex).find('span').transition(tSpeed)
+          navSwiper.slides.eq(activeIndex).find('span').css('color', 'rgba(255,72,145,1)')
+          if (activeIndex > 0) {
+            navSwiper.slides.eq(activeIndex - 1).find('span').transition(tSpeed)
+            navSwiper.slides.eq(activeIndex - 1).find('span').css('color', 'rgba(51,51,51,1)')
+          }
+          if (activeIndex < this.slides.length) {
+            navSwiper.slides.eq(activeIndex + 1).find('span').transition(tSpeed)
+            navSwiper.slides.eq(activeIndex + 1).find('span').css('color', 'rgba(51,51,51,1)')
+          }
+          //导航居中
+          navActiveSlideLeft = navSwiper.slides[activeIndex].offsetLeft //activeSlide距左边的距离
+
+          navSwiper.setTransition(tSpeed)
+          if (navActiveSlideLeft < (clientWidth - parseInt(navSlideWidth)) / 2) {
+            navSwiper.setTranslate(0)
+          } else if (navActiveSlideLeft > navWidth - (parseInt(navSlideWidth) + clientWidth) / 2) {
+            navSwiper.setTranslate(clientWidth - navWidth)
+          } else {
+            navSwiper.setTranslate((clientWidth - parseInt(navSlideWidth)) / 2 - navActiveSlideLeft)
+          }
+        },
+      }
+    })
+    navSwiper.$el.on('touchstart', function(e) {
+      e.preventDefault() //去掉按压阴影
+    })
+    navSwiper.on('tap', function(e) {
+      clickIndex = this.clickedIndex
+      clickSlide = this.slides.eq(clickIndex)
+      tabContentBoxSwiper.slideTo(clickIndex, 0);
+      this.slides.find('span').css('color', 'rgba(51,51,51,1)');
+      clickSlide.find('span').css('color', 'rgba(255,72,145,1)');
+    })
+    //初始化所有tab    
+    var $allTabPage = $('.tab-page')
+    for (var i = 0; i < $allTabPage.length; i++) {
+      (function (index) {
+        var bs = BetterScroll.createBScroll($allTabPage[i], {
+          pullUpLoad: true,
+          stopPropagation: false,
+        })
+        //上拉加载数据
+        bs.on('pullingUp', function() {
+          $('.pullup-normal').hide()
+          $('.pullup-loading').show()
+          console.log('上拉', index)
+          //模拟数据
+          setTimeout(() => {
+            $('.pullup-normal').show()
+            $('.pullup-loading').hide()
+            $($('.tab-page .tab-page-content')[index]).append(createDom())
+            bs.finishPullUp()
+            bs.refresh()
+          }, 1000)
+        })
+      })(i)
+    }
+
+    function createDom() {
+      var dom = `<div class="img-box">
+                  <img src="uploads/product${Math.floor(Math.random() * 4) + 1}.png"></li>
+                </div>
+                <div class="img-box">
+                  <img src="uploads/product${Math.floor(Math.random() * 4) + 1}.png"></li>
+                </div>`
+      return dom
+    }
+  </script>
+</body>
+</html>
